@@ -17,7 +17,7 @@ parser.add_argument('image', type=FileStorage, location='files')
 
 class Home(Resource):
 	def get(self):
-		return {"message":"'./born' to calculate age "}
+		return {"message":"'./image' to upload image or ./born' to calculate age "}
 
 class Image(Resource):
 	def get(self):

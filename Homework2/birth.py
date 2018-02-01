@@ -17,7 +17,7 @@ parser.add_argument('birthdate')
 
 class Home(Resource):
 	def get(self):
-		return {"message":"./image' to upload image "}
+		return {"message":"./image' to upload image or ./born' to calculate age "}
 
 class Birth(Resource):
 	def get(self):
