@@ -2,7 +2,7 @@ from flask import Flask , request
 from flask_restful import Resource ,Api,reqparse
 import json,time
 from datetime import datetime,date
-from werkzeug.datastructures import FileStorage
+
 
 app = Flask (__name__)
 
@@ -15,10 +15,6 @@ def calculate_age(born):
 parser = reqparse.RequestParser()
 parser.add_argument('birthdate')
 
-class Home(Resource):
-	def get(self):
-		return {"message":"./image' to upload image or ./born' to calculate age "}
-
 class Birth(Resource):
 	def get(self):
 		return {"message":"Plese sent 'birthdate' (POST method) to me."}
@@ -28,8 +24,7 @@ class Birth(Resource):
 		datetime_object = datetime.strptime(birthdate, '%d-%m-%Y')
 		age = int(calculate_age(datetime_object))
 		return {"birthdate":birthdate,"age":age}
-		
-api.add_resource(Home,'/')
+
 api.add_resource(Birth,'/born')
 
 if __name__ == '__main__':
